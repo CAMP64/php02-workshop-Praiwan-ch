@@ -29,13 +29,13 @@ class Student extends BaseController
         }
         $data['image'] = $image_name;
 
-        $file = $this-> request->getFile('file');
+        $file = $this-> request->getFile('pdf');
         if($file->isValid())
         {
             $file_name = $file->getRandomName();
             $file->move('./file',$file_name);
         }
-        $data['file'] = $file_name;
+        $data['pdf'] = $file_name;
         return view('v_show_value',$data);
     }
 
